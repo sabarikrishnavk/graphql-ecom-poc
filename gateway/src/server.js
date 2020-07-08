@@ -8,7 +8,7 @@ const gateway = new ApolloGateway({
   // prevents composition failures at runtime using schema validation using
   // real usage-based metrics.
   serviceList: [ 
-    { name: "products", url: "http://localhost:9100/graphql" },
+    { name: "product", url: "http://localhost:9100/graphql" },
     { name: "inventory", url: "http://localhost:9101/graphql" }
   ],
 

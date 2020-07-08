@@ -6,20 +6,10 @@ const elasticSearchSchema = require('./server.es.schema');
 const { buildFederatedSchema } = require("@apollo/federation");
 const {gql} = require("apollo-server");
 
-const typeDefs = gql`
-  type inOthers {
-    name: String!
-    quantity: String!
-    uuid: String!
-  }
+const typeDefs = gql` 
 
-  type inStocks {
-    name: String!
-    quantity: String!
-    uuid: String!
-  } 
   type Product @key(fields: "id") {
-    id : String
+    id : String!
     name: String
     default_image: String
     new_product: Boolean
@@ -28,10 +18,7 @@ const typeDefs = gql`
     country: String
     article: String
     promotion: Boolean
-    price: String
-    in_stocks: [inStocks]
-    in_others: inOthers
-    in_waiting: inOthers
+    price: String 
     currency_name: String 
   }
 

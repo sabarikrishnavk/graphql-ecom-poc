@@ -67,6 +67,9 @@
       "id": {
         "type": "text"
       },
+      "sku": {
+        "type": "text"
+      },
       "stock": {
         "type": "long"
       }

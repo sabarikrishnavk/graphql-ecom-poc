@@ -7,10 +7,15 @@ const {gql} = require("apollo-server");
 //const {makeExecutableSchema} = require('graphql-tools');
 const typeDefs =  gql`
   type Inventory @key(fields: "id")  {
-    id : String
+    id : String!
+    sku: String
     stock: String
+    product: Product
   }
-
+  extend type Product @key(fields: "id") {
+    id: String! @external
+    inventorys: [Inventory]
+  }
   extend type Query {
     inventory: [Inventory]
   }
@@ -27,7 +32,31 @@ const resolvers = {
 
           resolve(_source);
         });
-    }),
+    })
+  },
+  Product: {
+    inventorys:(product) => new Promise((resolve, reject) => {
+      const searchBody = {
+        "size": 1000,
+        "from": 0,
+        "query": {
+          "match": {
+            "sku": product.id
+          }
+        }
+      };
+      ElasticSearchClient({...searchBody})
+        .then(r => {
+          let _source = r['hits']['hits'];
+              _source.map((item, i) => _source[i] = item._source); 
+          resolve(_source);
+        });
+    })
+  },
+  Inventory:{
+    product(inventory){
+      return { __typename: "Product", id: inventory.sku };
+    } 
   }
 };
 const inventorySchema = buildFederatedSchema({

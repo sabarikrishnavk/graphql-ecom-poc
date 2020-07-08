@@ -1,0 +1,17 @@
+{
+  "name": "setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup:product": "node ./create/product.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "elasticsearch": "^16.7.1",
+    "lodash": "^4.17.15",
+    "run-func": "^1.0.5"
+  }
+}

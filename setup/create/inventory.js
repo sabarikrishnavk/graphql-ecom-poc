@@ -1,6 +1,6 @@
 
-const params = require('../es-mapping/product');
-const PRODUCTS = require('../data/product.json').products;
+const params = require('../es-mapping/inventory');
+const PRODUCTS = require('../data/inventory.json').inventory;
 const ElasticSearch = require('elasticsearch');
 const _ = require('lodash');
 const { zip } = require('lodash');
@@ -13,7 +13,7 @@ const client = new ElasticSearch.Client({
   hosts: ['http://127.0.0.1:9200']
 });
 
-const INDEXNAME = "product";
+const INDEXNAME = "inventory";
 
 async function deleteIndex (indexName){
   console.log('deleteIndex');

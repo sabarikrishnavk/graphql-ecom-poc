@@ -67,65 +67,8 @@
       "id": {
         "type": "text"
       },
-      "brand": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "brand_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
-      },
-      "country": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "catalog_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
-      },
-      "imageLink": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "catalog_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
-      },
-      "language": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "catalog_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
-      },
-      "link": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "catalog_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
-      },
-      "name": {
-        "type": "text",
-        "fielddata": true,
-        "analyzer": "catalog_analyzer",
-        "fields": {
-          "raw": {
-            "type": "keyword"
-          }
-        }
+      "stock": {
+        "type": "long"
       }
     }
   }

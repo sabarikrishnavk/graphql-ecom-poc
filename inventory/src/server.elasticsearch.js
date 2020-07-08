@@ -15,7 +15,7 @@ client.ping({
 
 function ElasticSearchClient(body) {
   // perform the actual search passing in the index, the search query and the type
-  return client.search({index: 'product', body: body});
+  return client.search({index: 'inventory', body: body});
 }
 
 function ApiElasticSearchClient(req, res) {

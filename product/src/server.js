@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const {ApolloServer} = require('apollo-server-express');
 const {ApiElasticSearchClient} = require('./server.elasticsearch');
-const madeExecutableSchema = require('./server.graphql');
+const productSchema = require('./server.graphql');
 
 // PORT
 const PORT = 9100;
 
 const server = new ApolloServer({
-  schema: madeExecutableSchema,
+  schema: productSchema,
   playground: true,
 });
 

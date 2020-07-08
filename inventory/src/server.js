@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const {ApolloServer} = require('apollo-server-express');
 const {ApiElasticSearchClient} = require('./server.elasticsearch');
-const madeExecutableSchema = require('./server.graphql');
+const inventorySchema = require('./server.graphql');
 
 // PORT
 const PORT = 9101;
 
 const server = new ApolloServer({
-  schema: madeExecutableSchema,
+  schema: inventorySchema,
   playground: true,
 });
 
@@ -37,5 +37,5 @@ app.get('/search', ApiElasticSearchClient);
 server.applyMiddleware({app});
 
 app.listen(PORT, function () {
-  console.log(`Product API server listening on port :${PORT}${server.graphqlPath}`);
+  console.log(`Inventory API server listening on port :${PORT}${server.graphqlPath}`);
 });

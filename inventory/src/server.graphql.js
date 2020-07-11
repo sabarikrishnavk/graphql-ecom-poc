@@ -10,6 +10,7 @@ const typeDefs =  gql`
     id : String!
     sku: String
     stock: String
+    location: String
     product: Product
   }
   extend type Product @key(fields: "id") {

@@ -3,7 +3,14 @@
         {
           "stock": 100,
           "sku": 1958,
-          "id" : 1
+          "location" : 1,
+          "id" : 19581
+        },
+        {
+          "stock": 10,
+          "sku": 1958,
+          "location" : 2,
+          "id" : 1958
         },
         {
           "stock": 10,

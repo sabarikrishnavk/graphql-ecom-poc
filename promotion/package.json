@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node promotion/evaluator.js",
+    "test": "node src/evaluator.js",
     "start": "node 'dist/server.js'",
     "build": "tsc -p . && ncp src/schema dist/schema",
     "start:dev": "npm run build:dev",

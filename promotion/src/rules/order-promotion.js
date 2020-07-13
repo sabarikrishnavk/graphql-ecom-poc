@@ -1,16 +1,17 @@
 const {  Rule } = require('rools');
 
-const percentageOff = new Rule({
-  name: '10% off on Order',
+const ORD_PERCENTAGE_OFF = new Rule({
+  name: 'ORD_PERCENTAGE_OFF',
   priority: 5,
-  when: (orders) => orders.total >= 100,
+  when: (orders) => orders.total >= orders.promotions.ORD_PERCENTAGE_OFF.total,
   then: (orders) => {
-    orders.total = 0.9 * orders.total;
+    orders.discount = orders.promotions.ORD_PERCENTAGE_OFF.percentage * orders.total;
+    orders.total =  orders.total - orders.discount; 
   },
 });
 
-const dollarOff = new Rule({
-  name: '$10 off on order',
+const ORD_DOLLAR_OFF = new Rule({
+  name: 'ORD_DOLLAR_OFF',
   priority: 10,
   when: (orders) => orders.total >= 250,
   then: (orders) => {
@@ -18,4 +19,4 @@ const dollarOff = new Rule({
   },
 });
 
-module.exports = {percentageOff, dollarOff};
+module.exports = {ORD_PERCENTAGE_OFF, ORD_DOLLAR_OFF};

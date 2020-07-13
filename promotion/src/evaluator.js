@@ -5,11 +5,13 @@ const {ITEM_PERCENTAGE_OFF } =require( './rules/order-item-promotion');
 
 const calculatePromotion = (orders) =>{ 
     orders.total = 0;
+    orders.price = 0;
     orders.discount =0;
+    orders.totaldiscount = 0;
     orders.promotions={};
     orders.items.filter(function(item) {
         item.total = ( item.quantity * item.price) ; 
-        orders.total = orders.total + item.total;
+        orders.price = orders.price + item.total;
         item.discount = 0;
     }); 
     
@@ -62,6 +64,7 @@ const calculatePromotion = (orders) =>{
         item.total =( item.quantity * item.price) ; 
         orders.totaldiscount = orders.totaldiscount + item.discount;
     }); 
+    orders.total = orders.price - orders.totaldiscount;
 
     console.log("--final orders---");
     console.log(orders);

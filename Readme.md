@@ -32,13 +32,24 @@ http://localhost:9100/graphql
 
 Run Inventory API
 ---
-cd product
+cd inventory
 <br>
 npm install  
 <br>
 npm run start:dev
 <br>
 http://localhost:9101/graphql
+
+
+Run Gateway (Apollo federation) API
+---
+cd gateway
+<br>
+npm install  
+<br>
+npm run start:dev
+<br>
+http://localhost:4000/graphql
 
 
 Run Promotion API
@@ -51,6 +62,7 @@ npm run start:dev
 <br>
 
 POST http://localhost:9000/calculate
+<br>
 {
     "items": [ 
         {

@@ -14,11 +14,9 @@ const ITEM_PERCENTAGE_OFF = new Rule({
   ],
   then: (orders) => {  
     orders.items.forEach(function(item) { 
-      skusInItemPercentageOff(orders).forEach(sku => {
-        if(sku == item.sku){
+      if(skusInItemPercentageOff(orders).includes(item.sku)){
           item.discount = orders.promotions.ITEM_PERCENTAGE_OFF.percentage * item.total;
-        }
-      });
+        } 
     });
   },
 });
